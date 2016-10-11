@@ -3,8 +3,11 @@
 # 1st arg - file with copyright header
 # 2nd arg - files to process (e.g. *.hpp)
 
-COPYRIGHT="$1"
-shift
+if test ${#} -gt 0
+then
+  COPYRIGHT="$1"
+  shift
+fi
 
 while test ${#} -gt 0
 do
