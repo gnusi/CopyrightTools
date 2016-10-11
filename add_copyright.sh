@@ -3,7 +3,7 @@
 # 1st arg - files to process (e.g. *.hpp)
 # 2nd arg - file with copyright header
 
-for i in $1 # or whatever other pattern...
+for i in $1
 do
   if ! grep -q Copyright $i
   then
