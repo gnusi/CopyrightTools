@@ -1,12 +1,16 @@
 #!/bin/bash
 
-# 1st arg - files to process (e.g. *.hpp)
-# 2nd arg - file with copyright header
+# 1st arg - file with copyright header
+# 2nd arg - files to process (e.g. *.hpp)
 
-for i in $1
+COPYRIGHT="$1"
+shift
+
+while test ${#} -gt 0
 do
-  if ! grep -q Copyright $i
+  if ! grep -q Copyright $1
   then
-    cat $2 $i >$i.new && mv $i.new $i
+    cat $COPYRIGHT $1 >$1.new && mv $1.new $1
   fi
+  shift
 done
